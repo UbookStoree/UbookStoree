@@ -1,0 +1,253 @@
+<?php
+
+namespace AchatBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Commande
+ *
+ * @ORM\Table(name="commande", indexes={@ORM\Index(name="commande_ibfk_12", columns={"id_utilisateurFk"})})
+ * @ORM\Entity(repositoryClass="AchatBundle\Repository\CommandeRepository")
+ */
+class Commande
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idCommande", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idcommande;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="prixTotal", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $prixtotal;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="quantite", type="integer", nullable=false)
+     */
+    private $quantite;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_commande", type="date", nullable=false)
+     */
+    private $dateCommande;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="valid", type="integer", nullable=false)
+     */
+    private $valid;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_livraison", type="date", nullable=false)
+     */
+    private $dateLivraison;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="etat_livraison", type="integer", nullable=false)
+     */
+    private $etatLivraison;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="EventsBundle\Entity\User")
+     * @ORM\JoinColumn(name="id_utilisateurFk", referencedColumnName="id")
+     *
+     */
+    private $idUtilisateurfk;
+
+
+
+    /**
+     * Get idcommande
+     *
+     * @return integer
+     */
+    public function getIdcommande()
+    {
+        return $this->idcommande;
+    }
+
+    /**
+     * Set prixtotal
+     *
+     * @param float $prixtotal
+     *
+     * @return Commande
+     */
+    public function setPrixtotal($prixtotal)
+    {
+        $this->prixtotal = $prixtotal;
+
+        return $this;
+    }
+
+    /**
+     * Get prixtotal
+     *
+     * @return float
+     */
+    public function getPrixtotal()
+    {
+        return $this->prixtotal;
+    }
+
+    /**
+     * Set quantite
+     *
+     * @param integer $quantite
+     *
+     * @return Commande
+     */
+    public function setQuantite($quantite)
+    {
+        $this->quantite = $quantite;
+
+        return $this;
+    }
+
+    /**
+     * Get quantite
+     *
+     * @return integer
+     */
+    public function getQuantite()
+    {
+        return $this->quantite;
+    }
+
+    /**
+     * Set dateCommande
+     *
+     * @param \DateTime $dateCommande
+     *
+     * @return Commande
+     */
+    public function setDateCommande($dateCommande)
+    {
+        $this->dateCommande = $dateCommande;
+
+        return $this;
+    }
+
+    /**
+     * Get dateCommande
+     *
+     * @return \DateTime
+     */
+    public function getDateCommande()
+    {
+        return $this->dateCommande;
+    }
+
+    /**
+     * Set valid
+     *
+     * @param integer $valid
+     *
+     * @return Commande
+     */
+    public function setValid($valid)
+    {
+        $this->valid = $valid;
+
+        return $this;
+    }
+
+    /**
+     * Get valid
+     *
+     * @return integer
+     */
+    public function getValid()
+    {
+        return $this->valid;
+    }
+
+    /**
+     * Set dateLivraison
+     *
+     * @param \DateTime $dateLivraison
+     *
+     * @return Commande
+     */
+    public function setDateLivraison($dateLivraison)
+    {
+        $this->dateLivraison = $dateLivraison;
+
+        return $this;
+    }
+
+    /**
+     * Get dateLivraison
+     *
+     * @return \DateTime
+     */
+    public function getDateLivraison()
+    {
+        return $this->dateLivraison;
+    }
+
+    /**
+     * Set etatLivraison
+     *
+     * @param integer $etatLivraison
+     *
+     * @return Commande
+     */
+    public function setEtatLivraison($etatLivraison)
+    {
+        $this->etatLivraison = $etatLivraison;
+
+        return $this;
+    }
+
+    /**
+     * Get etatLivraison
+     *
+     * @return integer
+     */
+    public function getEtatLivraison()
+    {
+        return $this->etatLivraison;
+    }
+
+
+    /**
+     * Set idUtilisateurfk
+     *
+     * @param \EventsBundle\Entity\User $idUtilisateurfk
+     *
+     * @return Commande
+     */
+    public function setIdUtilisateurfk(\EventsBundle\Entity\User $idUtilisateurfk = null)
+    {
+        $this->idUtilisateurfk = $idUtilisateurfk;
+
+        return $this;
+    }
+
+    /**
+     * Get idUtilisateurfk
+     *
+     * @return \EventsBundle\Entity\User
+     */
+    public function getIdUtilisateurfk()
+    {
+        return $this->idUtilisateurfk;
+    }
+}

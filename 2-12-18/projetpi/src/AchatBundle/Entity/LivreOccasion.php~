@@ -1,0 +1,92 @@
+<?php
+
+namespace AchatBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * LivreOccasion
+ *
+ * @ORM\Table(name="livre_occasion", indexes={@ORM\Index(name="categorie_ibfk_1", columns={"id_categorie_fk"})})
+ * @ORM\Entity
+ */
+class LivreOccasion
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_livre", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idLivre;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_user_fk", type="integer", nullable=false)
+     */
+    private $idUserFk;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titre", type="string", length=255, nullable=false)
+     */
+    private $titre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="auteur", type="string", length=255, nullable=false)
+     */
+    private $auteur;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="prix_occasion", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $prixOccasion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="resume", type="string", length=255, nullable=false)
+     */
+    private $resume;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etat_livre", type="string", length=255, nullable=false)
+     */
+    private $etatLivre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="traitement", type="string", length=255, nullable=true)
+     */
+    private $traitement;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255, nullable=false)
+     */
+    private $image;
+
+    /**
+     * @var \Categorie
+     *
+     * @ORM\ManyToOne(targetEntity="Categorie")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_categorie_fk", referencedColumnName="id_categorie")
+     * })
+     */
+    private $idCategorieFk;
+
+
+}
+

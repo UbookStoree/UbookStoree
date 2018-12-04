@@ -1,0 +1,63 @@
+{% extends "base.html.twig" %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>votre panier d'achat contient {{ quantite }} livres </h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p >
+    <a class="btn btn-dark " href="{{ path('readallocc')}}">Continuez vos achats</a></p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+
+    <center>
+
+
+
+        <table class="table table-striped custab">
+            <tr><th>titre</th><th>prix</th><th>date</th><th>quantite</th><th>Action</th></tr>
+            {% for m in lignecommandes %}
+                <tr>
+                    <td>{{ m.idlivrefk.titre }}</td>
+                    <td>{{ m.idLivrefk.prixOccasion}}</td>
+                    <td>{{ m.date|date }}</td>
+                    <td>{{ 1}}</td>
+                    <td><a href="{{ path('deleteocc',{'id':m.idlivrefk.idLivre}) }}" class="btn btn-danger btn-xs" ><span class="glyphicon glyphicon-remove"></span>Supprimer</a></td>
+
+
+                </tr>
+            {% endfor %}
+        </table>
+        <h3>total : {{ total }} dt </h3>
+        <br>
+        <br>
+        <a class="btn btn-success glyphicon glyphicon-check btn-default" href="{{ path('valider_cmd',{'id':idcmd}) }}">valider</a>
+        <a href="{{ path('sandbox_pdfexample') }}" class="btn btn-danger btn-primary"><span class="glyphicon glyphicon-file"> </span>Print</a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </center>
+
+
+
+{% endblock %}
