@@ -1,0 +1,140 @@
+{% extends 'front-office/base.html.twig' %}
+
+
+
+{% block body %}
+    <body>
+    <head> <link href="{{ asset('bundles/js/jquery-2.2.3.min.js') }}></head>
+
+    <div class="row" style=" margin-bottom: 55px">
+        <div class="col-md-2"></div>
+        <div class="col-md-6" style="margin-top: 25px; background-color: #2B81AF">
+            <br>
+            <h1 style=" margin-bottom: 20px; font-size: 40px; text-align: center" >Modifier Ebooks</h1>
+
+            <center>
+
+                {{ form_start(form) }}
+                <label style="margin-top: 20px">Titre</label>
+                {{ form_widget(form.titre, {'type' : 'text', 'attr' : {'class' : 'form-control', 'placeholder' : 'Titre'}}) }}
+                <span id="titre_error" style="display: none; color: red; position: absolute; margin-left: 500px; margin-top: -38px"><i class="fa fa-exclamation-triangle"></i></span>
+                <span id="titre_succ" style="display: none; color: #1e7e34; position: absolute; margin-left: 500px; margin-top: -38px"><i class="fa fa-check-circle"></i></span>
+
+                <label style="margin-top: 20px">Auteur</label>
+                {{ form_widget(form.auteur, {'type' : 'text', 'attr' : {'class' : 'form-control', 'placeholder' : 'Auteur'}}) }}
+                <span id="auteur_error" style="display: none; color: red; position: absolute; margin-left: 500px; margin-top: -38px"><i class="fa fa-exclamation-triangle"></i></span>
+                <span id="auteur_succ" style="display: none; color: #1e7e34; position: absolute; margin-left: 500px; margin-top: -38px"><i class="fa fa-check-circle"></i></span>
+
+                <label style="margin-top: 20px">Résumer</label>
+                {{ form_widget(form.resumer, {'type' : 'text', 'attr' : {'class' : 'form-control', 'placeholder' : 'Resumer'}}) }}
+                <span id="resumer_error" style="display: none; color: red; position: absolute; margin-left: 500px; margin-top: -38px"><i class="fa fa-exclamation-triangle"></i></span>
+                <span id="resumer_succ" style="display: none; color: #1e7e34; position: absolute; margin-left: 500px; margin-top: -38px"><i class="fa fa-check-circle"></i></span>
+
+                <label style="margin-top: 20px">Type</label>
+                {{ form_widget(form.type, {'type' : 'text', 'attr' : {'class' : 'form-control', 'placeholder' : 'Type'}}) }}
+                <span id="type_error" style="display: none; color: red; position: absolute; margin-left: 500px; margin-top: -38px"><i class="fa fa-exclamation-triangle"></i></span>
+                <span id="type_succ" style="display: none; color: #1e7e34; position: absolute; margin-left: 500px; margin-top: -38px"><i class="fa fa-check-circle"></i></span>
+
+                <label style="margin-top: 20px">Prix</label>
+                {{ form_widget(form.prix, {'type' : 'number', 'attr' : {'class' : 'form-control', 'placeholder' : 'Prix'}}) }}
+                <span id="prix_error" style="display: none; color: red; position: absolute; margin-left: 500px; margin-top: -38px"><i class="fa fa-exclamation-triangle"></i></span>
+                <span id="prix_succ" style="display: none; color: #1e7e34; position: absolute; margin-left: 500px; margin-top: -38px"><i class="fa fa-check-circle"></i></span>
+
+                <label style="margin-top: 20px">File</label>
+                {{ form_widget(form.file) }}
+                <span id="file_error" style="display: none; color: red; position: absolute; margin-left: 500px; margin-top: -38px"><i class="fa fa-exclamation-triangle"></i></span>
+                <span id="file_succ" style="display: none; color: #1e7e34; position: absolute; margin-left: 500px; margin-top: -38px"><i class="fa fa-check-circle"></i></span>
+                <div class="clearfix" style="margin-top: 20px"></div>
+                <input type="submit" id="add_book" class="btn btn-primary btn-block" style="width: 50%; margin-left: 25%" value="Add">
+                {{ form_end(form) }}
+            </center>
+        </div>
+        </div>
+        </div>
+        <script src="{{ asset('bundles/js/jquery-2.2.3.min.js') }}"></script>
+        <script  >
+
+
+            $(function () {
+                $('#ebookbundle_ebook_titre').blur(function () {
+                    var tr = $('#ebookbundle_ebook_titre').val();
+                    if (tr.length < 4 || !(isNaN(tr))) {
+                        $('#titre_error').css("display", "block");
+                        $('#titre_succ').css("display", "none");
+                        $('#ebookbundle_ebook_titre').css("border", "1px red solid");
+                    }
+                    else {
+                        $('#titre_error').css("display", "none");
+                        $('#titre_succ').css("display", "block");
+                        $('#ebookbundle_ebook_titre').css("border", "1px green solid");
+                    }
+
+                });
+                $('#ebookbundle_ebook_auteur').blur(function () {
+                    var au = $('#ebookbundle_ebook_auteur').val();
+                    if (au.length < 4 || !(isNaN(au))) {
+                        $('#auteur_error').css("display", "block");
+                        $('#auteur_succ').css("display", "none");
+                        $('#ebookbundle_ebook_auteur').css("border", "1px red solid");
+                    }
+                    else {
+                        $('#auteur_error').css("display", "none");
+                        $('#auteur_succ').css("display", "block");
+                        $('#ebookbundle_ebook_auteur').css("border", "1px green solid");
+                    }
+
+                });
+                $('#ebookbundle_ebook_resumer').blur(function () {
+                    var des = $('#ebookbundle_ebook_resumer').val();
+                    if (des.length < 4 || !(isNaN(des))) {
+                        $('#resumer_error').css("display", "block");
+                        $('#resumer_succ').css("display", "none");
+                        $('#ebookbundle_ebook_resumer').css("border", "1px red solid");
+                    }
+                    else {
+                        $('#resumer_error').css("display", "none");
+                        $('#resumer_succ').css("display", "block");
+                        $('#ebookbundle_ebook_resumer').css("border", "1px green solid");
+                    }
+
+                });
+                $('#ebookbundle_ebook_file').blur(function () {
+                    var des = $('#ebookbundle_ebook_file').val();
+                    if (isNaN(des)) {
+                        $('#file_error').css("display", "block");
+                        $('#file_succ').css("display", "none");
+                        $('#ebookbundle_ebook_file').css("border", "1px red solid");
+                    }
+                    else {
+                        $('#file_error').css("display", "none");
+                        $('#file_succ').css("display", "block");
+                        $('#ebookbundle_ebook_file').css("border", "1px green solid");
+                    }
+
+                });
+
+                $('#add_book').click(function (e) {
+
+                    if(
+                        $('#name_error').css("display") == "block" ||
+                        $('#des_error').css("display") == "block" ||
+                        $('#cap_error').css("display") == "block" ||
+                        $('#date_error').css("display") =="block" ||
+                        $('#price_error').css("display") == "block"
+                    )
+                    {
+                        alert('Veuillez verifier vos données')
+                        $('#submit_failed').css('display','block');
+                        e.preventDefault();
+                    }
+                })
+
+
+            });
+
+        </script>
+    </head>
+    </body>
+{% endblock %}
+
+

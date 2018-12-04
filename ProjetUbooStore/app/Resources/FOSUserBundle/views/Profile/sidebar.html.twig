@@ -1,0 +1,111 @@
+<div class="col-lg-3 col-md-3 col-sm-4">
+    <!-- My account box start -->
+    <div class="my-account-box">
+        <div class="item">
+            <h3 class="title">
+                Gérer mon profil
+            </h3>
+            <p>
+                <a href="{{ path('fos_user_profile_show') }}" class="active">
+                    <i class="flaticon-social"></i>Mon profil
+                </a>
+            </p>
+            <p>
+                <a href="{{ path('fos_user_profile_edit') }}">
+                    <i class="flaticon-shape"></i>Modifier mon profil
+                </a>
+            </p>
+            <p>
+                <a href="{{ path('fos_message_inbox') }}">
+                    <i class="fa-mail-forward"></i>Mes messages
+                </a>
+            </p>
+        </div>
+        <div class="item">
+            <h3 class="title">
+                Gérer mes annonces
+            </h3>
+            <p>
+
+                <a href="{{ path('MesAnnonce') }}">
+                    <i class="flaticon-apartment"></i>Mes annonce
+                </a>
+            </p>
+            <p>
+                <a href="{{ path('annonce_new') }}">
+                    <i class="fa fa-plus"></i>Proposer une annonce
+                </a>
+            </p>
+        </div>
+
+        <div class="item">
+            <h3 class="title">
+                Gestion des produits
+            </h3>
+
+            <p>
+                <a href="{{ path('Produit_mesproduit') }}">
+                    <i class="flaticon-apartment"></i>Mes Produits
+                </a>
+            </p>
+            <p>
+                <a href="{{ path('Produit_new') }}">
+                    <i class="fa fa-plus"></i>Ajouter un produit
+                </a>
+            </p>
+        </div>
+        <div class="item">
+            <h3 class="title">
+                Gestion des animaux
+            </h3>
+            <p>
+                <a href="{{ path('animaux_User_List') }}">
+                    <i class="flaticon-apartment"></i>Mes Animaux
+                </a>
+            </p>
+            <p>
+                <a href="{{ path('animaux_Ajouter') }}">
+                    <i class="fa fa-plus"></i>Ajouter un animal
+                </a>
+            </p>
+        </div>
+
+        <div class="item">
+            <h3 class="title">
+                Mes evenement
+            </h3>
+            <p>
+                <a href="{{ path('event_mesevenement') }}">
+                    <i class="flaticon-apartment"></i>Mes evenements
+                </a>
+            </p>
+            <p>
+                <a href="{{ path('event_meseparticipation') }}">
+                    <i class="flaticon-shape"></i>Mes participation
+                </a>
+            </p>
+
+            <p>
+                <a href="{{ path('event_new') }}">
+                    <i class="fa fa-plus"></i>Ajouter un nouveau evenement
+                </a>
+            </p>
+        </div>
+
+
+
+        <div class="item">
+            <p>
+                <a href="{{ path('fos_user_change_password') }}">
+                    <i class="flaticon-security"></i>Change mot de passe
+                </a>
+            </p>
+            <p>
+                <a href="#">
+                    <i class="flaticon-sign-out-option"></i>Deconnexion
+                </a>
+            </p>
+        </div>
+    </div>
+    <!-- My account box end -->
+</div>
