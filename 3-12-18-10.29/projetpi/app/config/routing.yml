@@ -1,0 +1,20 @@
+achat_ligne_commande:
+    resource: "@AchatBundle/Controller/LigneCommandeController.php"
+    type:     annotation
+
+achat:
+    resource: "@AchatBundle/Resources/config/routing.yml"
+    prefix:   /
+
+events:
+    resource: "@EventsBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+fos_user:
+        resource: "@FOSUserBundle/Resources/config/routing/all.xml"

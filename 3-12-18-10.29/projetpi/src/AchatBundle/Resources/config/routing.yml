@@ -1,0 +1,65 @@
+achat_homepage:
+    path:     /
+    defaults: { _controller: AchatBundle:Default:index }
+
+readallocc:
+    path:     /readallocc
+    defaults: { _controller: AchatBundle:Livreocc:readallocc }
+
+addocc:
+    path:     /addocc/{id}
+    defaults: { _controller: AchatBundle:Panier:addocc }
+
+deleteocc:
+    path:     /deleteocc/{id}
+    defaults: { _controller: AchatBundle:Panier:deleteocc }
+
+editocc:
+    path:     /editocc
+    defaults: { _controller: AchatBundle:Panier:editocc }
+
+getpanier:
+    path:     /getpanier
+    defaults: { _controller: AchatBundle:Panier:getpanier }
+history:
+    path:     /history
+    defaults: { _controller: AchatBundle:Commande:history }
+
+valider_cmd:
+    path:     /validerCmd/{id}
+    defaults: { _controller: AchatBundle:Commande:validerCmd }
+my_cmd:
+    path:     /myCmd
+    defaults: { _controller: AchatBundle:Commande:myCmd }
+annuler_cmd:
+    path:     /annulerCmd/{id}
+    defaults: { _controller: AchatBundle:Commande:annulerCmd }
+
+get_cmd:
+    path:     /getCmd
+    defaults: { _controller: AchatBundle:Commande:getCmd }
+
+search_cmd:
+    path:     /searchCmd
+    defaults: { _controller: AchatBundle:Commande:searchCmd }
+
+get_all_cmd:
+    path:     /getAllCmd
+    defaults: { _controller: AchatBundle:AdminCmommande:getAllCmd }
+
+search_cmd:
+    path:     /SearchCmd
+    defaults: { _controller: AchatBundle:AdminCmommande:SearchCmd }
+
+valider_livraison:
+    path:     /ValiderLivraison/{id}
+    defaults: { _controller: AchatBundle:AdminCmommande:ValiderLivraison }
+
+search_cmd_admin:
+    path:     /SearchCmdAdmin
+    defaults: { _controller: AchatBundle:AdminCmommande:SearchCmdAdmin }
+
+
+sandbox_pdfexample:
+    path:     /pdf-example
+    defaults: { _controller: AchatBundle:Panier:pdf }

@@ -1,0 +1,76 @@
+{% extends "base.html.twig" %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2 style="color: #e85342">votre panier d'achat contient {{ quantite }} livres </h2>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <a class="btn btn-dark " href="{{ path('readallocc')}}" style="background-color:#f0c674"> <span class="abtxt1"></span>Continuez vos achats</a>
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+
+    <center>
+
+
+
+        <table class="table table-striped custab">
+            <tr><th>titre</th><th>prix</th><th>date</th><th>quantite</th><th>Action</th></tr>
+            {% for m in lignecommandes %}
+                <tr>
+                    <td>{{ m.idlivrefk.titre }}</td>
+                    <td>{{ m.idLivrefk.prixOccasion}}</td>
+                    <td>{{ m.date|date }}</td>
+                    <td>{{ 1}}</td>
+                    <td><a href="{{ path('deleteocc',{'id':m.idlivrefk.idLivre}) }}" class="btn btn-danger btn-xs" ><span class="glyphicon glyphicon-remove"></span>Supprimer</a></td>
+
+
+                </tr>
+            {% endfor %}
+        </table>
+        <h3>total : {{ total }} dt </h3>
+        <br>
+        <br>
+        <a class="btn btn-success glyphicon glyphicon-check btn-default" id="btn" href="{{ path('valider_cmd',{'id':idcmd}) }}">valider</a>
+        <a href="{{ path('sandbox_pdfexample') }}" class="btn btn-danger btn-primary"><span class="glyphicon glyphicon-file"> </span>Imprimer</a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </center>
+
+
+
+{% endblock %}
+{% block javascripts %}
+
+<script src="{{ asset('js/jquery-2.2.3.min.js') }}"></script>
+<script type="text/javascript" >
+    $('#btn').click(function (e) {
+            alert('votre commande a été validé avec succeés !');
+
+    });
+
+</script>
+{% endblock %}
+
+
