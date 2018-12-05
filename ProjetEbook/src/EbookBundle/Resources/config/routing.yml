@@ -1,0 +1,49 @@
+ebook_homepage:
+    path:     /
+    defaults: { _controller: EbookBundle:Default:index }
+
+ebook_templatAD:
+    path:     /admin
+    defaults: { _controller: EbookBundle:Default:admintempl }
+ebook_templatCL:
+    path:     /client
+    defaults: { _controller: EbookBundle:Default:clienttemp }
+
+showbook:
+    path:     /show
+    defaults: { _controller: EbookBundle:Ebook:show }
+showFavbook:
+    path:     /showf
+    defaults: { _controller: EbookBundle:Ebook:showFavoris}
+readbook:
+    path:     /readbook
+    defaults: { _controller: EbookBundle:Ebook:readbook }
+
+creatbook:
+    path:     /creatbook
+    defaults: { _controller: EbookBundle:Ebook:creatbook }
+
+updatebook:
+    path:     /updatebook/{id}
+    defaults: { _controller: EbookBundle:Ebook:updatebook }
+
+deletebook:
+    path:     /deletebook/{id}
+    defaults: { _controller: EbookBundle:Ebook:deletebook }
+
+read_fav:
+    path:     /readFav
+    defaults: { _controller: EbookBundle:Favoris:mesFavorisInactive }
+
+creat_fav:
+    path:     /creatFav/{id_Ebook}/{id_user}
+    defaults: { _controller: EbookBundle:Favoris:creatFav }
+
+_update_fav:
+    path:     /listeFavAction
+    defaults: { _controller: EbookBundle:Favoris:listeFavAction }
+
+delete_fav:
+    path:     /deleteFav/{id_user}/{id}
+    defaults: { _controller: EbookBundle:Favoris:deleteFav }
+

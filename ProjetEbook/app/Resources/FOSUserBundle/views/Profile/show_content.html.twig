@@ -1,0 +1,79 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block body %}
+    <!-- Sub banner start -->
+    <div class="sub-banner">
+        <div class="overlay">
+            <div class="container">
+                <div class="breadcrumb-area">
+                    <div class="top">
+                        <h1>My Profile</h1>
+                    </div>
+                    <ul class="breadcrumbs">
+                        <li><a href="{{ path('homepage') }}">Home</a></li>
+                        <li class="active">My Profile</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sub Banner end -->
+
+<!-- My profile start -->
+<div class="my-profile">
+    <div class="container">
+
+            {{ include('FOSUserBundle:Profile:sidebar.html.twig') }}
+
+            <div class="col-lg-6 col-md-6 col-sm-5">
+                <!-- My address start-->
+                <div class="my-address">
+                    <h1>My Account
+                        <a style=" border-color:#d62323 ; background-color: #d62323 "  href="{{ path('fos_user_profile_edit') }}" class="btn btn-primary btn-xs pull-right"><i
+                                    class="fa fa-pencil"></i> Edit</a>
+                    </h1>
+
+                    <form action="http://real-house.sohelrana.me/index.html">
+                        <div class="form-group">
+                            <label>Votre nom</label>
+                            <input type="text" class="input-text" name="your name" value="{{ user.username }}"readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Votre mail</label>
+                            <input type="text" class="input-text" name="mail" value="{{ user.email }}" readonly >
+                        </div>
+                        <div class="form-group">
+                            <label>Télephone</label>
+                            <input type="text" class="input-text" name="phone" value="{{ user.telephone }}"readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Sexe</label>
+                            <input type="email" class="input-text" name="sexe" value="{{ user.sexe }}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Ville</label>
+                            <input type="email" class="input-text" name="ville" value="{{ user.ville }}" readonly>
+                        </div>
+                    </form>
+                </div>
+                <!-- My address end -->
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <!-- Avatar start -->
+                <div class="edit-profile-photo">
+                    <img src="{{ user.image }}" alt="agent-1" class="img-responsive">
+                    <div class="change-photo-btn">
+                        <div class="photoUpload">
+                            <span><i class="fa fa-upload"></i> Upload Photo</span>
+                            <input type="file" class="upload">
+                        </div>
+                    </div>
+                </div>
+                <!-- Avatar end -->
+            </div>
+
+
+</div>
+</div>
+
+    {% endblock %}

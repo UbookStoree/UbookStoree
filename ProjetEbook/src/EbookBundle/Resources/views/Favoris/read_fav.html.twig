@@ -1,0 +1,308 @@
+{% extends 'back-office/base.html.twig' %}
+
+
+
+{% block body %}
+    <head>
+        <title>Ubook Store</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="Chronicle Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+        <script>
+            addEventListener("load", function () {
+                setTimeout(hideURLbar, 0);
+            }, false);
+
+            function hideURLbar() {
+                window.scrollTo(0, 1);
+            }
+        </script>
+        <!-- Custom Theme files -->
+        <link href="{{ asset('bundles/css/bootstrap.css')}}" type="text/css" rel="stylesheet" media="all">
+        <!-- shop css -->
+        <link href="{{ asset('bundles/css/shop.css')}}" type="text/css" rel="stylesheet" media="all">
+        <!-- checkout css -->
+        <link href="{{ asset('bundles/css/checkout.css')}}" type="text/css" rel="stylesheet" media="all">
+        <!-- Range-slider-css -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundlss/css/jquery-ui1.css')}}">
+        <!-- common-css -->
+        <link href="{{ asset('bundles/css/style.css')}}" type="text/css" rel="stylesheet" media="all">
+        <!-- font-awesome icons -->
+        <link href="{{ asset('bundles/css/font-awesome.css')}}" rel="stylesheet">
+        <link href="{{ asset('bundles/css/rahma.css')}}" rel="stylesheet">
+
+        <!-- //Custom Theme files -->
+        <!-- online-fonts -->
+        <!-- logo -->
+        <link href="{{ asset('bundles///fonts.googleapis.com/css?family=Fredericka+the+Great')}}" rel="stylesheet">
+        <!-- titles -->
+        <link href="{{ asset('bundles///fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i,800,800i')}}" rel="stylesheet">
+        <!-- body -->
+        <link href="{{ asset('bundles///fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i')}}'" rel="stylesheet">
+        <!-- //online-fonts -->
+        <link href="{{ asset('bundles/css/rahma1.css')}}" rel="stylesheet">
+    </head>
+
+
+    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+
+    <div class="innerf-pages section">
+        <div class="container-cart">
+            <!-- product left -->
+            <div class="side-bar col-md-3">
+                <!--preference -->
+                <div class="left-side">
+                    <h3 class="shopf-sear-headits-sear-head">
+                        Categories</h3>
+                    <ul>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">Biographies</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">Fiction</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">Management</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">Business</span>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- // preference -->
+                <div class="search-hotel">
+                    <h3 class="shopf-sear-headits-sear-head">
+                        <span>author</span> in focus</h3>
+                    <form action="#" method="post">
+                        <input type="search" placeholder="search here" name="search" required="">
+                        <input type="submit" value="Search">
+                    </form>
+                </div>
+                <!-- price range -->
+                <div class="range">
+                    <h3 class="shopf-sear-headits-sear-head">
+                        <span>Price</span> range</h3>
+                    <ul class="dropdown-menu6">
+                        <li>
+
+                            <div id="slider-range"></div>
+                            <input type="text" id="amount" style="border: 0; color: #ffffff; font-weight: normal;" />
+                        </li>
+                    </ul>
+                </div>
+                <!-- //price range -->
+                <!--preference -->
+                <div class="left-side">
+                    <h3 class="shopf-sear-headits-sear-head">
+                        <span>latest</span> arrivals</h3>
+                    <ul>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">last 30 days</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">last 90 days</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">last 150 days</span>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- // preference -->
+                <!-- discounts -->
+                <div class="left-side">
+                    <h3 class="shopf-sear-headits-sear-head">Language</h3>
+                    <ul>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">English</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">Spanish</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">Japanese</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">German</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">Korean</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">Chinese</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">French</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //discounts -->
+                <!-- Binding -->
+                <div class="left-side">
+                    <h3 class="shopf-sear-headits-sear-head">Format</h3>
+                    <ul>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">Hardcover</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">Board Book</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">Bundle</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">Paperback</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">Audio Book</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //Binding -->
+                <!-- discounts -->
+                <div class="left-side">
+                    <h3 class="shopf-sear-headits-sear-head">Discount</h3>
+                    <ul>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">5% - 20%</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">20% - 40%</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">40% - 60%</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" class="checked">
+                            <span class="span">60% or more</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //discounts -->
+                <!-- reviews -->
+
+                <!-- //reviews -->
+
+
+            </div>
+            <!-- //product left -->
+            <!-- product right -->
+            <div class="left-ads-display col-md-9">
+                <div class="wrapper_top_shop">
+                    <!-- product-sec1 -->
+                    <div class="product-sec1">
+                        <!-- row1-->
+
+                        {% for e in favoris %}
+                            <div class="col-md-3 product-men">
+
+                                <div class="product-chr-info chr">
+                                    <div class="thumbnail">
+
+                                    </div>
+
+
+                                    <div class="caption">
+                                        <a href="{{ path('delete_fav',{'id_user':4,'id':e.id}) }}"><img src="{{ asset('bundles/images/r.png')}}" alt="" id="b" ></a>
+                                        <td><img src="{{asset('images/')  }}{{ e.nomImage }}"style="width: 150px; height: 120px"></td>
+                                        <br>
+                                        <br>
+                                        <h4>{{ e.typeEbook }}</h4>
+                                        <p>{{ e.titre }} </p>
+                                        <div class="matrlf-mid">
+
+                                            <ul class="rating">
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="fa fa-star gray-star" aria-hidden="true"></span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <ul class="price-list">
+                                                <li>$ 200.00</li>
+                                                <li>
+                                                    $250.00
+                                                </li>
+                                            </ul>
+
+                                            <div class="clearfix"> </div>
+
+                                        </div>
+
+                                        <form action="#" method="post">
+                                            <input type="hidden" name="cmd" value="_cart">
+                                            <input type="hidden" name="add" value="1">
+                                            <input type="hidden" name="chr_item" value="Book2">
+                                            <input type="hidden" name="amount" value="200.00">
+                                            <button type="submit" class="chr-cart pchr-cart">Add to cart
+                                                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                            </button>
+                                            <a href="#" data-toggle="modal" data-target="#myModal1"></a>
+
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        {% endfor %}
+
+
+                        <!-- //home -->
+                        <!-- js -->
+                        <!-- Common js -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+
+    </html>
+{% endblock %}
