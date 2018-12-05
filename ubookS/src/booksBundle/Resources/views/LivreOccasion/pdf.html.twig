@@ -1,0 +1,37 @@
+{% block title %}
+{% endblock %}
+{% block content %}
+
+    <center>
+        <div style="margin-bottom: 50px; margin-top: 40px">
+            <h1 style="margin-bottom: 20px"> Liste des livres</h1>
+            <table border="1">
+                <tr><th>id</th><th>user</th><th>categorie</th><th>titre</th><th>auteur</th><th>prix</th><th>etat_livre</th><th>treated</th></tr>
+                {% for l in livres %}
+                    <tr>
+                        <td> {{ l.idLivre }}</td>
+
+                        <td> {{ l.user.id}}</td>
+
+                        <td> {{ l.categorie.nomCategorie }}</td>
+
+                        <td>{{ l.titre }}</td>
+
+                        <td>{{ l.auteur }}</td>
+
+                        <td>{{ l.prixOccasion }}</td>
+
+                        <td>{{ l.etatLivre }}</td>
+
+                        <td>{{ l.treated }}</td>
+
+
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </center>
+    <br>
+
+
+{% endblock %}

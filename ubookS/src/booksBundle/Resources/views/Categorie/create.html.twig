@@ -1,0 +1,39 @@
+{% extends 'admin.html.twig' %}
+{% block b %}
+    {{ form_start(f) }}
+    <h1 style="color:darkslategray">Ajouter une catégorie</h1>
+
+    {{ form_widget(f.nomCategorie) }}
+    <span id="catName_error" style="display: none; color: red; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-exclamation-triangle"></i></span>
+    <span id="catName_succ" style="display: none; color: #1e7e34; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-check-circle"></i></span>
+    <input id="create" class="btn btn-primary" type="submit" value="Ajouter une catégorie">
+    {{ form_end(f) }}
+
+    <script src="{{ asset('js/jquery-2.2.3.min.js') }}"></script>
+
+    <script type="text/javascript" >
+        $('#booksbundle_categorie_nomCategorie').keyup(function (){
+            var type=$('#booksbundle_categorie_nomCategorie').val();
+            if(!isNaN(type)){
+                $("#catName_error").css("display","block");
+                $("#catName_succ").css("display","none");
+            }
+            else{
+                $("#catName_error").css("display","none");
+                $("#catName_succ").css("display","block");
+            }
+
+        });
+        $('#create').click(function (e) {
+            if(
+                $('#catName_error').css("display") == "block"
+            )
+            {
+                alert('La catégorie ne peut pas être un nombre, veuillez vérifier vos input')
+                //$('#submit_failed').css('display','block');
+                e.preventDefault();
+            }
+        });
+    </script>
+
+{% endblock %}

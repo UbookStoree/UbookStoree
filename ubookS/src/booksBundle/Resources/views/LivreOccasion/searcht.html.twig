@@ -1,0 +1,16 @@
+{% extends 'admin.html.twig' %}
+{% block b %}
+<html>
+<head>
+</head>
+<body>
+<form method="get">
+    <fieldset>
+        <legend>Recherche</legend>
+        EtatLivre: <input type="text" name="etat"><br>
+        <input type="submit" value="recherche">
+    </fieldset>
+</form>
+</body>
+</html>
+{% endblock %}

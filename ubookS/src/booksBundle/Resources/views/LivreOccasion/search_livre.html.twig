@@ -1,0 +1,46 @@
+<form method="POST">
+    <input  type="text" name="categorie" id="C">
+
+</form>
+
+<div class="div" id="div">
+
+</div>
+<script src="{{ asset("js/jquery-2.2.3.min.js") }}"></script>
+<script>
+    $("#C").keyup(function () {
+        // récuperation de valeur
+        var input=$("#C").val();
+        //requete
+        $.ajax({
+            url:"{{ path('search_ajax') }}",
+            type: "POST",
+            data:{'categorie':input },
+            success:function (data) {
+                console.log(data);
+                $("#div").html("<table id='res' border='1'>"+
+                    "<td>user</td>"+
+                    "<td>categorie</td>"+
+                    "<td>titre</td>"+
+                    "<td>auteur</td>"+
+                    "<td>prixOccasion</td></table>");
+                $.each(data,function (k,el) {
+                    $('#res').append(
+                        "<tr>"+
+                        "<td>"+el.user.id+"</td>"+
+                        "<td>"+el.categorie.nomCategorie+"</td>"+
+                        "<td>"+el.titre+"</td>"+
+                        "<td>"+el.auteur+"</td>"+
+                        "<td>"+el.prixOccasion+"</td>"+
+                        "</tr>"+"</table"
+
+
+                    )
+
+                })
+
+            }
+
+        });
+    });
+</script>

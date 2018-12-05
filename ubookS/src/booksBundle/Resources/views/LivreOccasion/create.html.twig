@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+<center>
+    <div style="margin-bottom: 50px; margin-top: 40px">
+        <h3 style="color: darkslategrey">Veuillez remplir ces champs</h3>
+    {{ form_start(f) }}
+        <h5>Titre:<span style="color: red; "> *</span></h5>
+        {{ form_widget(f.titre) }}
+        <span id="titre_error" style="display: none; color: red; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-exclamation-triangle"></i></span>
+        <span id="titre_succ" style="display: none; color: #1e7e34; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-check-circle"></i></span>
+        </br>
+        <h5>Auteur:<span style="color: red; "> *</span></h5>
+        {{ form_widget(f.auteur) }}
+        <span id="auteur_error" style="display: none; color: red; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-exclamation-triangle"></i></span>
+        <span id="auteur_succ" style="display: none; color: #1e7e34; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-check-circle"></i></span>
+        </br>
+        <h5>Prix:<span style="color: red; "> *</span></h5>
+        {{ form_widget(f.prixOccasion) }}
+        <span id="prix_error" style="display: none; color: red; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-exclamation-triangle"></i></span>
+        <span id="prix_succ" style="display: none; color: #1e7e34; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-check-circle"></i></span>
+        </br>
+        <h5>Etat du livre:<span style="color: red; "> *</span></h5>
+        {{ form_widget(f.etatLivre) }}
+        <span id="etatLivre_error" style="display: none; color: red; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-exclamation-triangle"></i></span>
+        <span id="etatLivre_succ" style="display: none; color: #1e7e34; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-check-circle"></i></span>
+        </br>
+        <h5>Image:<span style="color: red; "> *</span></h5>
+        {{ form_widget(f.file) }}
+        <span id="image_error" style="display: none; color: red; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-exclamation-triangle"></i></span>
+        <span id="image_succ" style="display: none; color: #1e7e34; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-check-circle"></i></span>
+        </br>
+        <h5>Categorie:<span style="color: red; "> *</span></h5>
+        {{ form_widget(f.categorie) }}
+        <span id="categorie_error" style="display: none; color: red; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-exclamation-triangle"></i></span>
+        <span id="categorie_succ" style="display: none; color: #1e7e34; position: absolute; margin-left: 270px; margin-top: -26px"><i class="fa fa-check-circle"></i></span>
+        </br>
+        <input id="btn" class="btn btn-primary" type="submit" value="Ajouter">
+
+
+        </br>
+
+
+
+    {{ form_end(f) }}
+    </div>
+</center>
+{% endblock %}
+{% block javascripts %}
+<script src="{{ asset('js/jquery-2.2.3.min.js') }}"></script>
+<script type="text/javascript" >
+
+    $('#booksbundle_livreoccasion_titre').keyup(function (){
+        var l=$('#booksbundle_livreoccasion_titre').val();
+        if(!isNaN(l)){
+            $("#titre_error").css("display","block");
+            $("#titre_succ").css("display","none");
+        }
+        else{
+            $("#titre_error").css("display","none");
+            $("#titre_succ").css("display","block");
+        }
+
+    });
+    $('#booksbundle_livreoccasion_auteur').keyup(function (){
+        var l=$('#booksbundle_livreoccasion_auteur').val();
+        if(!isNaN(l)){
+            $("#auteur_error").css("display","block");
+            $("#auteur_succ").css("display","none");
+        }
+        else{
+            $("#auteur_error").css("display","none");
+            $("#auteur_succ").css("display","block");
+        }
+
+    });
+    $('#booksbundle_livreoccasion_prixOccasion').keyup(function (){
+        var l=$('#booksbundle_livreoccasion_prixOccasion').val();
+        if((l<10)){
+            $("#prix_error").css("display","block");
+            $("#prix_succ").css("display","none");
+        }
+        else{
+            $("#prix_error").css("display","none");
+            $("#prix_succ").css("display","block");
+        }
+
+    });
+    $('#btn').click(function (e) {
+        if(
+            $('#titre_error').css("display") == "block" ||
+            $('#auteur_error').css("display") == "block" ||
+            $('#prix_error').css("display") == "block"
+        )
+        {
+            alert('Veuillez verifier vos inforamations')
+            //$('#submit_failed').css('display','block');
+            e.preventDefault();
+        }
+        else
+            alert('Votre demande d ajout est pris en consideration');
+
+    });
+
+</script>
+{% endblock %}

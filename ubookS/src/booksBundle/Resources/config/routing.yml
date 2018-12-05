@@ -1,0 +1,42 @@
+home_page:
+    path:     /
+    defaults: { _controller: booksBundle:Default:index }
+create_l:
+    path:     /createl
+    defaults: { _controller: booksBundle:LivreOccasion:createl }
+read_l:
+    path:     /readl
+    defaults: { _controller: booksBundle:LivreOccasion:readl }
+accepter_livre:
+    path:     /accepter/{idLivre}
+    defaults: { _controller: booksBundle:LivreOccasion:accepter }
+
+refuser_livre:
+    path:     /refuser/{idLivre}
+    defaults: { _controller: booksBundle:LivreOccasion:refuser }
+show_l:
+    path:     /showl
+    defaults: { _controller: booksBundle:LivreOccasion:showl }
+search_livre:
+    path:     /searcha
+    defaults: { _controller: booksBundle:LivreOccasion:searcha }
+create_categorie:
+    path:     /createC
+    defaults: { _controller: booksBundle:Categorie:createc }
+read_categorie:
+    path:     /read
+    defaults: { _controller: booksBundle:Categorie:read }
+
+update_categorie:
+    path:     /update/{idCategorie}
+    defaults: { _controller: booksBundle:Categorie:update }
+
+delete_categorie:
+    path:     /delete/{idCategorie}
+    defaults: { _controller: booksBundle:Categorie:delete }
+search_ajax:
+    path:     /searchAjax
+    defaults: { _controller: booksBundle:LivreOccasion:SearchLivre }
+sandbox_pdfexample:
+    path:     /pdf-example
+    defaults: { _controller: booksBundle:LivreOccasion:pdf }

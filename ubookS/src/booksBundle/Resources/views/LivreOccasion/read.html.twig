@@ -1,0 +1,39 @@
+{% extends 'admin.html.twig' %}
+
+{% block b %}
+<center>
+    <div style="margin-bottom: 50px; margin-top: 40px">
+        <h1 style="margin-bottom: 20px"> Liste des livres</h1>
+    <table border="1">
+        <tr><th>id</th><th>user</th><th>categorie</th><th>titre</th><th>auteur</th><th>prix</th><th>etat_livre</th><th>treated</th><th>image</th><th>Accept</th><th>Refus</th></tr>
+        {% for l in livres %}
+            <tr>
+                <td> {{ l.idLivre }}</td>
+
+                <td> {{ l.user.id}}</td>
+
+                <td> {{ l.categorie.nomCategorie }}</td>
+
+                <td>{{ l.titre }}</td>
+
+                <td>{{ l.auteur }}</td>
+
+                <td>{{ l.prixOccasion }}</td>
+
+                <td>{{ l.etatLivre }}</td>
+
+                <td>{{ l.treated }}</td>
+
+                <td><img src="{{ asset ('bundles/uploads/imagesimagesimages/') }}{{ l.image }}" style="width:40px;height: 40px"></td>
+
+                <td><a class="btn btn-info fa fa-check" href="{{ path('accepter_livre',{'idLivre':l.idLivre })}}">Accepter</a></td>
+
+                <td><a class="btn btn-danger fa fa-remove" href="{{ path('refuser_livre',{'idLivre':l.idLivre })}}">Refuser</a></td>
+
+            </tr>
+        {% endfor %}
+    </table>
+        <a href="{{ path('sandbox_pdfexample') }}" class="btn btn-danger btn-primary"><span class="glyphicon glyphicon-file"> </span>Imprimer</a>
+    </div>
+</center>
+{% endblock %}
