@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block title %}AchatBundle:Livreocc:readallocc{% endblock %}
+
+{% block content %}
+<h1>Welcome to our catalogue</h1>
+    <center>
+        la liste des livres est :
+        <table border="1">
+            <tr><th>id</th><th>titre</th><th>auteur</th><th>prix</th><th>resume</th><th>Action</th></tr>
+            {% for l in livres %}
+                <tr>
+                    <td>{{ l.idLivre}}</td>
+                    <td>{{ l.titre }}</td>
+                    <td>{{ l.auteur }}</td>
+                    <td>{{ l.prixOccasion }}</td>
+                    <td>{{ l.resume }}</td>
+                    <td><a class="btn btn-primary" href="{{ path('addocc',{'id':l.idLivre }) }}">ajouter</a></td>
+
+                </tr>
+            {% endfor %}
+        </table>
+    </center>
+{% endblock %}

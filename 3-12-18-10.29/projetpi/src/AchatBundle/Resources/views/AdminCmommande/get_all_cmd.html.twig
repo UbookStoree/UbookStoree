@@ -1,0 +1,29 @@
+{% extends "admin.html.twig" %}
+
+{% block title %}AchatBundle:AdminCmommande:getAllCmd{% endblock %}
+
+{% block b%}
+<h1>Welcome to the AdminCmommande:getAllCmd page</h1>
+
+    <center>
+        la liste des commandes est :
+        <table  class="table table-striped custab">
+            <tr><th>id</th><th>prixTotale</th><th>quantite</th><th>date de commande</th><th>valide</th><th>client</th><th>Action</th></tr>
+            {% for l in cmds %}
+                <tr>
+                    <td>{{ l.idcommande}}</td>
+                    <td>{{ l.prixtotal }}</td>
+                    <td>{{ l.quantite }}</td>
+                    <td>{{ l.dateCommande|date  }}</td>
+                    <td>{{ l.valid }}</td>
+                    <td>{{ l.idUtilisateurfk }}</td>
+                    <td><a class="btn btn-primary" href="{{ path('valider_livraison',{'id':l.idcommande }) }}">valider livraison</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </center>
+
+
+
+
+{% endblock %}

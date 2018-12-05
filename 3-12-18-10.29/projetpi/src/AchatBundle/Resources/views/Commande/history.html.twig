@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+{% block content %}
+    <br>
+    <br>
+    <a class="btn btn-dark " href="{{ path('readallocc')}}" style="background-color:#f0c674"> <span class="abtxt1"></span>Continuez vos achats</a>
+    <br>
+    <br>
+
+    <h3 style="color:yellowgreen">votre historique de commande {{ username }} :</h3>
+    <br>
+    <br>
+    <br>
+    <center>
+
+        <table  class="table table-striped custab">
+            <tr><th>prixTotale</th><th>quantite</th><th>date de commande</th><th>Etat</th><th>Commande reçu le</th></tr>
+            {% for l in cmds %}
+                <tr>
+                    <td style="color: tomato"><b>{{ l.prixtotal }} dt </b></td>
+                    <td>{{ l.quantite }}</td>
+                    <td>{{ l.dateCommande|date  }}</td>
+                    <td style="color: #009900"><b>livrée</b></td>
+                    <td>{{ l.dateLivraison|date }}</td></tr>
+            {% endfor %}
+        </table>
+        <br>
+        <br>
+        <h5 style="color:black">
+            <b>Nous vous remercions de votre fidélité et de la confiance que vous témoignez à UbookStore</b> </h5>
+        <br>
+        <br>
+    </center>
+
+
+
+
+
+{% endblock %}

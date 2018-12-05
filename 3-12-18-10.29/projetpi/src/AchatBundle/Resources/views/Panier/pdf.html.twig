@@ -1,0 +1,21 @@
+{% block title %}AchatBundle:Panier:pdf{% endblock %}
+{% block content %}
+    <h1>Welcome to the Panier:getpanier page</h1>
+    <center>
+        Votre commande:
+        <table border="1">
+            <tr><th>titre</th><th>prix</th><th>date</th><th>quantite</th></tr>
+            {% for m in lignecommandes %}
+                <tr>
+                    <td>{{ m.idlivrefk.titre }}</td>
+                    <td>{{ m.idLivrefk.prixOccasion}}</td>
+                    <td>{{ m.date|date }}</td>
+                    <td>{{ 1}}</td>
+
+                </tr>
+            {% endfor %}
+        </table>
+        <h3>total : {{ total }} dt </h3>
+    </center>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html.twig" %}
+{% block content %}
+<br>
+    <br>
+    <a class="btn btn-dark " href="{{ path('readallocc')}}" style="background-color:#f0c674"> <span class="abtxt1"></span>Continuez vos achats</a>
+    <a class="btn btn-dark " href="{{ path('history')}}" style="background-color:#f0c674"> <span class="abtxt1"></span>Historique</a>
+
+    <br>
+    <br>
+
+    <h3 style="color:#b4d100">vos commandes sont :</h3>
+    <br>
+    <br>
+    <br>
+    <center>
+
+        <table  class="table table-striped custab">
+            <tr><th>prixTotale</th><th>quantite</th><th>date de commande</th><th>date livraison</th><th>Action</th></tr>
+            {% for l in cmds %}
+                <tr>
+                    <td>{{ l.prixtotal }}</td>
+                    <td>{{ l.quantite }}</td>
+                    <td>{{ l.dateCommande|date  }}</td>
+                    <td>{{ l.dateLivraison|date }}</td>
+                    <td><a class="btn btn-danger btn-xs" id="btn" href="{{ path('annuler_cmd',{'id':l.idcommande }) }}"><span class="glyphicon glyphicon-remove"></span>annuler commande</a></td>
+
+                </tr>
+            {% endfor %}
+        </table>
+    </center>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+{% endblock %}
+
+{% block javascripts %}
+
+    <script src="{{ asset('js/jquery-2.2.3.min.js') }}"></script>
+    <script type="text/javascript" >
+        $('#btn').click(function (e) {
+            alert('votre commande a été annulée avec succeés !');
+
+        });
+
+    </script>
+{% endblock %}

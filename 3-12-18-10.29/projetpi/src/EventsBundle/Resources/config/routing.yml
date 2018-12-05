@@ -1,0 +1,36 @@
+
+create:
+    path:     /create
+    defaults: { _controller: EventsBundle:Offre:create }
+
+validate:
+    path:     /validate
+    defaults: { _controller: EventsBundle:Offre:validate }
+
+delete:
+    path:     /delete
+    defaults: { _controller: EventsBundle:Offre:delete }
+
+edit:
+    path:     /edit
+    defaults: { _controller: EventsBundle:Offre:edit }
+
+display:
+    path:     /display
+    defaults: { _controller: EventsBundle:Offre:display }
+
+create:
+    path:     /create
+    defaults: { _controller: EventsBundle:Meeting:create }
+
+delete:
+    path:     /delete
+    defaults: { _controller: EventsBundle:Meeting:delete }
+
+edit:
+    path:     /edit
+    defaults: { _controller: EventsBundle:Meeting:edit }
+
+display:
+    path:     /display
+    defaults: { _controller: EventsBundle:Meeting:display }

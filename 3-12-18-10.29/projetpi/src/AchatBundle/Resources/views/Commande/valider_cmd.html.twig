@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}commande validée{% endblock %}
+
+{% block content %}
+    <h1>votre commande a été validé avec succeés !<br>
+        votre comande sera livrée le {{ date|date }}
+
+    </h1>
+
+    <a class="btn btn-dark " href="{{ path('readallocc')}}"> Vous pouver continuez vos achats</a></p>
+
+
+
+
+{% endblock %}
