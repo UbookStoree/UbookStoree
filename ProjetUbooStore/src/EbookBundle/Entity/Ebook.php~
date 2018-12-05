@@ -1,0 +1,202 @@
+<?php
+
+namespace EbookBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+
+/**
+ * Ebook
+ *
+ * @ORM\Table(name="ebook")
+ * @ORM\Entity
+ */
+class Ebook
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Titre", type="string", length=255, nullable=false)
+     */
+    private $titre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Auteur", type="string", length=255, nullable=false)
+     */
+    private $auteur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Resumer", type="string", length=500, nullable=false)
+     */
+    private $resumer;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Type", type="string", length=255, nullable=false)
+     */
+    private $type;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="prix", type="integer", nullable=false)
+     */
+    private $prix;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NomImage", type="string", length=255, nullable=true)
+     */
+    public $NomImage;
+
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set titre
+     *
+     * @param string $titre
+     *
+     * @return Ebook
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
+    /**
+     * Get titre
+     *
+     * @return string
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * Set auteur
+     *
+     * @param string $auteur
+     *
+     * @return Ebook
+     */
+    public function setAuteur($auteur)
+    {
+        $this->auteur = $auteur;
+
+        return $this;
+    }
+
+    /**
+     * Get auteur
+     *
+     * @return string
+     */
+    public function getAuteur()
+    {
+        return $this->auteur;
+    }
+
+    /**
+     * Set resumer
+     *
+     * @param string $resumer
+     *
+     * @return Ebook
+     */
+    public function setResumer($resumer)
+    {
+        $this->resumer = $resumer;
+
+        return $this;
+    }
+
+    /**
+     * Get resumer
+     *
+     * @return string
+     */
+    public function getResumer()
+    {
+        return $this->resumer;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Ebook
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+
+
+
+
+    /**
+     * Set nomImage
+     *
+     * @param string $nomImage
+     *
+     * @return Ebook
+     */
+    public function setNomImage($nomImage)
+    {
+        $this->NomImage = $nomImage;
+
+        return $this;
+    }
+
+    /**
+     * Get nomImage
+     *
+     * @return string
+     */
+    public function getNomImage()
+    {
+        return $this->NomImage;
+    }
+}
