@@ -1,0 +1,6 @@
+create_l:
+    path:     /createl/{id}
+    defaults: { _controller: booksBundle:LivreOccasion:createl }
+read_l:
+    path:     /readl
+    defaults: { _controller: booksBundle:LivreOccasion:readl }

@@ -1,0 +1,624 @@
+<?php
+
+namespace EventsBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Utilisateur
+ *
+ * @ORM\Table(name="utilisateur", uniqueConstraints={@ORM\UniqueConstraint(name="id_utilisateur", columns={"id_utilisateur"}), @ORM\UniqueConstraint(name="cin", columns={"cin"}), @ORM\UniqueConstraint(name="pseudo", columns={"username"})})
+ * @ORM\Entity
+ */
+class Utilisateur
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_utilisateur", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idUtilisateur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="userNom", type="string", length=255, nullable=false)
+     */
+    private $usernom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="userPrenom", type="string", length=255, nullable=false)
+     */
+    private $userprenom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cin", type="string", length=100, nullable=false)
+     */
+    private $cin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=100, nullable=false)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email_canonical", type="string", length=180, nullable=true)
+     */
+    private $emailCanonical;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="username", type="string", length=100, nullable=false)
+     */
+    private $username;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="username_canonical", type="string", length=180, nullable=true)
+     */
+    private $usernameCanonical;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=100, nullable=false)
+     */
+    private $password;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nationalite", type="string", length=100, nullable=false)
+     */
+    private $nationalite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="date_naissance", type="string", length=100, nullable=false)
+     */
+    private $dateNaissance;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="roles", type="array", nullable=false)
+     */
+    private $roles;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="enabled", type="boolean", nullable=true)
+     */
+    private $enabled;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="salt", type="string", length=255, nullable=true)
+     */
+    private $salt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="last_login", type="datetime", nullable=true)
+     */
+    private $lastLogin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="confirmation_token", type="string", length=180, nullable=true)
+     */
+    private $confirmationToken;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="password_requested_at", type="datetime", nullable=true)
+     */
+    private $passwordRequestedAt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="userAdresse", type="string", length=255, nullable=false)
+     */
+    private $useradresse;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="userphone", type="integer", nullable=false)
+     */
+    private $userphone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="userImage", type="string", length=255, nullable=true)
+     */
+    private $userimage;
+
+
+
+    /**
+     * Get idUtilisateur
+     *
+     * @return integer
+     */
+    public function getIdUtilisateur()
+    {
+        return $this->idUtilisateur;
+    }
+
+    /**
+     * Set usernom
+     *
+     * @param string $usernom
+     *
+     * @return Utilisateur
+     */
+    public function setUsernom($usernom)
+    {
+        $this->usernom = $usernom;
+
+        return $this;
+    }
+
+    /**
+     * Get usernom
+     *
+     * @return string
+     */
+    public function getUsernom()
+    {
+        return $this->usernom;
+    }
+
+    /**
+     * Set userprenom
+     *
+     * @param string $userprenom
+     *
+     * @return Utilisateur
+     */
+    public function setUserprenom($userprenom)
+    {
+        $this->userprenom = $userprenom;
+
+        return $this;
+    }
+
+    /**
+     * Get userprenom
+     *
+     * @return string
+     */
+    public function getUserprenom()
+    {
+        return $this->userprenom;
+    }
+
+    /**
+     * Set cin
+     *
+     * @param string $cin
+     *
+     * @return Utilisateur
+     */
+    public function setCin($cin)
+    {
+        $this->cin = $cin;
+
+        return $this;
+    }
+
+    /**
+     * Get cin
+     *
+     * @return string
+     */
+    public function getCin()
+    {
+        return $this->cin;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Utilisateur
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set emailCanonical
+     *
+     * @param string $emailCanonical
+     *
+     * @return Utilisateur
+     */
+    public function setEmailCanonical($emailCanonical)
+    {
+        $this->emailCanonical = $emailCanonical;
+
+        return $this;
+    }
+
+    /**
+     * Get emailCanonical
+     *
+     * @return string
+     */
+    public function getEmailCanonical()
+    {
+        return $this->emailCanonical;
+    }
+
+    /**
+     * Set username
+     *
+     * @param string $username
+     *
+     * @return Utilisateur
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * Set usernameCanonical
+     *
+     * @param string $usernameCanonical
+     *
+     * @return Utilisateur
+     */
+    public function setUsernameCanonical($usernameCanonical)
+    {
+        $this->usernameCanonical = $usernameCanonical;
+
+        return $this;
+    }
+
+    /**
+     * Get usernameCanonical
+     *
+     * @return string
+     */
+    public function getUsernameCanonical()
+    {
+        return $this->usernameCanonical;
+    }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     *
+     * @return Utilisateur
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * Set nationalite
+     *
+     * @param string $nationalite
+     *
+     * @return Utilisateur
+     */
+    public function setNationalite($nationalite)
+    {
+        $this->nationalite = $nationalite;
+
+        return $this;
+    }
+
+    /**
+     * Get nationalite
+     *
+     * @return string
+     */
+    public function getNationalite()
+    {
+        return $this->nationalite;
+    }
+
+    /**
+     * Set dateNaissance
+     *
+     * @param string $dateNaissance
+     *
+     * @return Utilisateur
+     */
+    public function setDateNaissance($dateNaissance)
+    {
+        $this->dateNaissance = $dateNaissance;
+
+        return $this;
+    }
+
+    /**
+     * Get dateNaissance
+     *
+     * @return string
+     */
+    public function getDateNaissance()
+    {
+        return $this->dateNaissance;
+    }
+
+    /**
+     * Set roles
+     *
+     * @param array $roles
+     *
+     * @return Utilisateur
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * Get roles
+     *
+     * @return array
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     *
+     * @return Utilisateur
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return boolean
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * Set salt
+     *
+     * @param string $salt
+     *
+     * @return Utilisateur
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+
+        return $this;
+    }
+
+    /**
+     * Get salt
+     *
+     * @return string
+     */
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+
+    /**
+     * Set lastLogin
+     *
+     * @param \DateTime $lastLogin
+     *
+     * @return Utilisateur
+     */
+    public function setLastLogin($lastLogin)
+    {
+        $this->lastLogin = $lastLogin;
+
+        return $this;
+    }
+
+    /**
+     * Get lastLogin
+     *
+     * @return \DateTime
+     */
+    public function getLastLogin()
+    {
+        return $this->lastLogin;
+    }
+
+    /**
+     * Set confirmationToken
+     *
+     * @param string $confirmationToken
+     *
+     * @return Utilisateur
+     */
+    public function setConfirmationToken($confirmationToken)
+    {
+        $this->confirmationToken = $confirmationToken;
+
+        return $this;
+    }
+
+    /**
+     * Get confirmationToken
+     *
+     * @return string
+     */
+    public function getConfirmationToken()
+    {
+        return $this->confirmationToken;
+    }
+
+    /**
+     * Set passwordRequestedAt
+     *
+     * @param \DateTime $passwordRequestedAt
+     *
+     * @return Utilisateur
+     */
+    public function setPasswordRequestedAt($passwordRequestedAt)
+    {
+        $this->passwordRequestedAt = $passwordRequestedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get passwordRequestedAt
+     *
+     * @return \DateTime
+     */
+    public function getPasswordRequestedAt()
+    {
+        return $this->passwordRequestedAt;
+    }
+
+    /**
+     * Set useradresse
+     *
+     * @param string $useradresse
+     *
+     * @return Utilisateur
+     */
+    public function setUseradresse($useradresse)
+    {
+        $this->useradresse = $useradresse;
+
+        return $this;
+    }
+
+    /**
+     * Get useradresse
+     *
+     * @return string
+     */
+    public function getUseradresse()
+    {
+        return $this->useradresse;
+    }
+
+    /**
+     * Set userphone
+     *
+     * @param integer $userphone
+     *
+     * @return Utilisateur
+     */
+    public function setUserphone($userphone)
+    {
+        $this->userphone = $userphone;
+
+        return $this;
+    }
+
+    /**
+     * Get userphone
+     *
+     * @return integer
+     */
+    public function getUserphone()
+    {
+        return $this->userphone;
+    }
+
+    /**
+     * Set userimage
+     *
+     * @param string $userimage
+     *
+     * @return Utilisateur
+     */
+    public function setUserimage($userimage)
+    {
+        $this->userimage = $userimage;
+
+        return $this;
+    }
+
+    /**
+     * Get userimage
+     *
+     * @return string
+     */
+    public function getUserimage()
+    {
+        return $this->userimage;
+    }
+}

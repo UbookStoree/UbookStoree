@@ -1,0 +1,32 @@
+{% extends 'admin.html.twig' %}
+
+{% block b %}
+<center>
+    liste de livres
+    <table border="1">
+        <tr><th>id</th><th>user</th><th>categorie</th><th>titre</th><th>auteur</th><th>prix</th><th>etat_livre</th><th>treated</th><th>image</th><th>Action</th></tr>
+        {% for l in livres %}
+            <tr>
+                <td> {{ l.idLivre }}</td>
+
+                <td> {{ l.user.id}}</td>
+
+                <td> {{ l.categorie.nomCategorie }}</td>
+
+                <td>{{ l.titre }}</td>
+
+                <td>{{ l.auteur }}</td>
+
+                <td>{{ l.prixOccasion }}</td>
+
+                <td>{{ l.etatLivre }}</td>
+
+                <td>{{ l.treated }}</td>
+
+                <td>{{ l.image }}</td>
+
+            </tr>
+        {% endfor %}
+    </table>
+</center>
+{% endblock %}

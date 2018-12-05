@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+<center>
+    <h1>Veuillez remplir ces champs!</h1>
+    {{ form_start(f) }}
+    <input type="submit" value="ajouter">
+    {{ form_end(f) }}
+</center>
+{% endblock %}
